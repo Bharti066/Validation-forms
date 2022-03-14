@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+#forms .forms-details{
+    margin-right: 500px;
+    line-height: 10px;
+    text-align: center;
+}
+h4{
+    text-align: center;
+}
+.forms-details input{
+    line-height: 5px;
+}

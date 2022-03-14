@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="template">
+    <h4>Template Driven Forms</h4>
+  </div>
+  <div id="forms">
+    <form #myform="ngForm">
+      <div class="forms-details">
+        <div class="reg-details">
+          First Name :
+          <input type="text" name="User Name" [(ngModel)]="firstname" placeholder="user name" minlength="3" maxlength="15" pattern="[a-zA-Z]*$" #control1="ngModel" required>
+          <span class="error" *ngIf="control1.touched && control1.invalid && control1.errors?.['required']">First Name Can't be blank</span>
+          <span class="error" *ngIf="control1.touched && control1.invalid && control1.errors?.['minlength']"> Min. 3 characters</span>
+          <!-- <span class="error" *ngIf="control1.touched && control1.invalid && control1.errors?.['maxlength']"> MAx. 15 characters</span> -->
+          <span class="error" *ngIf="control1.touched && control1.invalid && control1.errors?.['pattern']"> Only Alphabet allows</span>
+        </div>
+        <div class="reg-details">
+          <br>
+          Last Name :
+          <input type="text" name="Last Name" [(ngModel)]="lastname" placeholder="last name" minlength="3" maxlength="10" pattern="[a-zA-Z]*$" #control2="ngModel" required>
+          <span class="error" *ngIf="control2.touched && control2.invalid && control2.errors?.['required']"> Last name can't be blank</span>
+          <span class="error" *ngIf="control2.touched && control2.invalid && control2.errors?.['minlength']">min. 3 characters</span>
+          <span class="error" *ngIf="control2.touched && control2.invalid && control2.errors?.['pattern']">Only Alphabet allows</span>
+        </div>
+        <div class="reg-details">
+          <br>
+          Email :
+          <input type="text" name="email" [(ngModel)]="email" placeholder="email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" #control3="ngModel" required>
+          <span class="error" *ngIf="control3.touched && control3.invalid && control3.errors?.['required']">Email can't be blank</span>
+          <span class="error" *ngIf="control3.touched && control3.invalid && control3.errors?.['pattern']">Please write valid email</span>
+        </div>
+        <div class="reg-details">
+          <br>
+          Password :
+          <input type="text" name="Password" [(ngModel)]="password" placeholder="password" required>
+        </div>
+        <div class="reg-details">
+          <br>
+          Gender :
+          <input type="radio" [(ngModel)]="gender" name="gender" value="Male">Male
+          <input type="radio" [(ngModel)]="gender" name="gender" value="Female">Female
+        </div>
+        <div class="reg-details">
+          <br>
+          <select [(ngModel)]="country" required>
+            <option value="">Please select </option>
+            <option value="India">India</option>
+            <option value="America">America</option>
+            <option value="Srilanks">Srilanks</option>
+            <option value="Landan">Lam=ndan</option>
+            <option value="Austrilia">Austrilia</option>
+          </select>
+          <div class="button">
+            <button type="button" (click)="registration(myform)">Submit</button>
+            <div [innerHtml]="msg"></div>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
