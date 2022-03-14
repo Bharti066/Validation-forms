@@ -36,12 +36,13 @@
         <div class="reg-details">
           <br>
           Gender :
-          <input type="radio" [(ngModel)]="gender" name="gender" value="Male">Male
-          <input type="radio" [(ngModel)]="gender" name="gender" value="Female">Female
+          <input type="radio" [(ngModel)]="gender" name="gender" value="Male" #control4="ngModel" required>Male
+          <input type="radio" [(ngModel)]="gender" name="gender" value="Female" #contro4="ngModel" required>Female
+          <span class="error" *ngIf="control4.touched && control4.invalid && control4.errors?.['required']">Please select gender</span>
         </div>
         <div class="reg-details">
           <br>
-          <select [(ngModel)]="country" required>
+          <select [(ngModel)]="country" name="country" #control5="ngModel" required>
             <option value="">Please select </option>
             <option value="India">India</option>
             <option value="America">America</option>
@@ -49,6 +50,8 @@
             <option value="Landan">Lam=ndan</option>
             <option value="Austrilia">Austrilia</option>
           </select>
+          <span class="error" *ngIf="control5.touched && control5.invalid && control5.errors?.['required']">Please select country</span>
+        
           <div class="button">
             <button type="button" (click)="registration(myform)">Submit</button>
             <div [innerHtml]="msg"></div>
