@@ -31,7 +31,8 @@
         <div class="reg-details">
           <br>
           Password :
-          <input type="text" name="Password" [(ngModel)]="password" placeholder="password" required>
+          <input type="text" name="Password" [(ngModel)]="password" placeholder="password" minlength="6" maxlength="15" #control6="ngModel" pattern="" required>
+          <sapn class="error" *ngIf="control5.touched && control5.invalid && control5.errors?.['required']">Password can't be blank</sapn>
         </div>
         <div class="reg-details">
           <br>
